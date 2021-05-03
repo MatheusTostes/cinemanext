@@ -30,6 +30,8 @@ export default function Home({list}) {
             </li>
           ))}
         </ul>
+
+        <Link href="/sobre">Sobre mim</Link>
       </main>
     </div>
   )

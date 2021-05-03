@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link';
-import styles from '../../styles/Home.module.css'
+import styles from '../styles/Home.module.css'
 
-export default function MovieItem({info}) {
+export default function Home({author}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,27 +13,28 @@ export default function MovieItem({info}) {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          {info.title}
+          Sobre o sistema
         </h1>
 
-        <p>Nota: {info.vote_average}</p>
+        O sistema foi feito em live para demonstrar os primeiros passo com o framework next.js.
 
-        <p>{info.overview}</p>
+        <hr/>
+        Autor: {author}
 
-        <img src={`https://image.tmdb.org/t/p/original${info.backdrop_path}`} width="400px" />
-        
+        <Link href="/busca">Ir para a Busca</Link>   
+        <Link href="/sobre">Sobre mim</Link>
       </main>
     </div>
   )
 }
 
-export async function getServerSideProps(context) {    
-  const res = await fetch(`http://localhost:3000/api/movie/${context.params.id}`);
+export async function getStaticProps() {
+  const res = await fetch('http://localhost:3000/api/trending');
   const json = await res.json();
-  
+
   return {
     props: {
-      info: json.info
+      author: 'Matheus'
     }
   };
 }
