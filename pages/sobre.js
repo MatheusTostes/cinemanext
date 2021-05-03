@@ -16,7 +16,7 @@ export default function Home({author}) {
           Sobre o sistema
         </h1>
 
-        O sistema foi feito em live para demonstrar os primeiros passo com o framework next.js.
+        O sistema foi feito em live para demonstrar os primeiros passos com o framework next.js.
 
         <hr/>
         Autor: {author}
